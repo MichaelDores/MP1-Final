@@ -6,9 +6,7 @@
  * Date: 2/12/2019
  * Time: 5:27 PM
  */
-
 main::start();
-
 
 class main {
 
@@ -18,10 +16,18 @@ class main {
 
         while(! feof($file))
         {
-            $records[] = $file;
+            $records[] = fgetcsv($file);
+
+            $records[] = $record;
         }
 
         fclose($file);
         print_r($records);
     }
 }
+class csv {
+
+    static public function getrecords($file) {}
+}
+class html {}
+class system {}
