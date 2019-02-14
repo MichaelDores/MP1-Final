@@ -6,28 +6,49 @@
  * Date: 2/12/2019
  * Time: 5:27 PM
  */
-main::start();
+main::start("Mini Project.csv");
 
 class main {
 
-    static public function start() {
+    static public function start($filename) {
 
-        $file = fopen("Mini Project.csv","r");
+        $records = csv::getrecords($filename);
 
-        while(! feof($file))
+        print_r($records);
+
+    }
+}
+class csv
+{
+
+    static public function getrecords($filename){
+
+        $file = fopen($filename, "r");
+
+        while (!feof($file))
         {
-            $records[] = fgetcsv($file);
 
-            $records[] = $record;
+            $records = fgetcsv($file);
+
+            $records[] = recordfactory::create();
         }
 
         fclose($file);
-        print_r($records);
+        return $records;
+
+    }
+
+}
+
+class record {}
+
+class recordfactory {
+
+    public static function create (array $array = null){
+
+        $record = new record();
+
+        return $record;
+
     }
 }
-class csv {
-
-    static public function getrecords($file) {}
-}
-class html {}
-class system {}
