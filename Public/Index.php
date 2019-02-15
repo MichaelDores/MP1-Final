@@ -13,9 +13,25 @@ class main {
     static public function start($filename) {
 
         $records = csv::getRecords($filename);
+        $table = html::generatetable($records);
+
+        }
+
+    }
+
+class html
+{
+
+    public static function generatetable($records)
+    {
+        foreach ($records as $record) {
+            $array = $record->returnarray();
+            print_r($array);
+        }
 
     }
 }
+
 class csv
 {
 
@@ -51,9 +67,16 @@ class record{
     public function __construct(Array $fieldnames = null, $values = null)
     {
         $record = array_combine($fieldnames, $values);
-        print_r($record);
 
-        $this->createproperty();
+        foreach($record as $property => $value) {
+            $this->createproperty($property, $value);
+        }
+
+    }
+
+    public function returnarray() {
+        $array = (array) $this;
+        return $array;
 
     }
 
