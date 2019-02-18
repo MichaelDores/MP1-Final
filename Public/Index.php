@@ -50,7 +50,7 @@ class html
     }*/
 
     public static function returntable($table){
-
+        echo "<html><body><table>\n\n";
         $file = fopen("Mini Project.csv", "r");
         while (($record = fgetcsv($file)) !== false) {
             echo "<tr>";
@@ -60,6 +60,7 @@ class html
             echo "</tr>\n";
         }
         fclose($file);
+        echo "\n</table></body></html>";
     }
 
 
