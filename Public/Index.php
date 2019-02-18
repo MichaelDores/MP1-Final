@@ -13,7 +13,7 @@ class main {
     static public function start($filename) {
 
         $records = csv::getRecords($filename);
-        $table = html::generatetable($records);
+        $table = html::returntable($records);
 
         }
 
@@ -22,13 +22,14 @@ class main {
 class html
 {
 
-    public static function generatetable($records){
+    /*public static function generatetable($records)
+    {
 
         $count = 0;
 
         foreach ($records as $record) {
 
-            if($count == 0) {
+            if ($count == 0) {
 
                 $array = $record->returnarray();
                 $fields = array_keys($array);
@@ -46,7 +47,22 @@ class html
 
         }
 
+    }*/
+
+    public static function returntable($table){
+
+        $file = fopen("Mini Project.csv", "r");
+        while (($record = fgetcsv($file)) !== false) {
+            echo "<tr>";
+            foreach ($record as $cell) {
+                echo "<td>" . htmlspecialchars($cell) . "</td>";
+            }
+            echo "</tr>\n";
+        }
+        fclose($file);
     }
+
+
 }
 
 class csv
