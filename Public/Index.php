@@ -22,11 +22,10 @@ class main {
 class html
 {
 
-    /*public static function generatetable($records)
-    {
+    public static function generatetable($records){
 
         $count = 0;
-
+        echo "<table id='hor-zebra'>";
         foreach ($records as $record) {
 
             if ($count == 0) {
@@ -44,13 +43,14 @@ class html
                 print_r($values);
             }
             $count++;
+            echo "</table>";
 
         }
 
-    }*/
+    }
 
     public static function returntable($table){
-        echo "<html><body><table>\n\n";
+        echo "<table id ='hor-zebra'>";
         $file = fopen("Mini Project.csv", "r");
         while (($record = fgetcsv($file)) !== false) {
             echo "<tr>";
@@ -60,7 +60,7 @@ class html
             echo "</tr>\n";
         }
         fclose($file);
-        echo "\n</table></body></html>";
+        echo "</table>";
     }
 
 
@@ -132,3 +132,4 @@ class recordfactory {
 
     }
 }
+?>
