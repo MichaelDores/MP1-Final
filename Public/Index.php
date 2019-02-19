@@ -1,11 +1,14 @@
 <?php
 
+
 /**
  * Created by PhpStorm.
  * User: Mike
  * Date: 2/12/2019
  * Time: 5:27 PM
  */
+
+
 main::start("Mini Project.csv");
 
 class main {
@@ -25,7 +28,6 @@ class html
     public static function generatetable($records){
 
         $count = 0;
-        echo "<table id='hor-zebra'>";
         foreach ($records as $record) {
 
             if ($count == 0) {
@@ -132,4 +134,6 @@ class recordfactory {
 
     }
 }
+
+
 ?>
